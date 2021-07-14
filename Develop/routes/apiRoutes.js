@@ -3,8 +3,9 @@ let dataStop1 = fs.readFileSync("./db/db.json", "utf-8");
 let dataStop2 = JSON.parse(dataStop1);
 
 function addToNoteList() {
-  fs.writeFile("./db/db.json", JSON, stringify(dataStop2), (err) => {
-    if (err) console.log(err);
+  fs.writeFile("./db/db.json", JSON.stringify(dataStop2), (err) => {
+    if (err) throw err;
+    return true;
   });
 }
 
