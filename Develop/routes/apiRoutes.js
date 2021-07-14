@@ -9,11 +9,15 @@ function addToNoteList() {
 }
 
 module.exports = (app) => {
-  app.get("/api/notesDB", (req, res) => {
+  app.get("/api/notes", (req, res) => {
     res.json(dataStop2);
   });
 
-  app.post("/api/notesDB", (req, res) => {
+  app.get("/api/notes/:noteId", (req, res) => {
+    res.JSON(dataStop2[req.params.noteId]);
+  });
+
+  app.post("/api/notes", (req, res) => {
     dataStop2.push(req.body);
     res.json(true);
     addToNoteList();
